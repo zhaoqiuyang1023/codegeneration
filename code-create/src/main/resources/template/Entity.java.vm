@@ -1,4 +1,4 @@
-package ${package}.${moduleName}.entity;
+package ${package}.entity;
 
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableId;

@@ -75,7 +75,7 @@ public class CodegenUtils {
         for (Map<String, String> column : columns) {
             ColumnEntity columnEntity = new ColumnEntity();
             columnEntity.setColumnName(column.get("columnName"));
-            columnEntity.setDataType(column.get("dataType"));
+            columnEntity.setDataType(DataTypeUtils.getDataType(column.get("dataType")));
             columnEntity.setComments(column.get("columnComment"));
             columnEntity.setExtra(column.get("extra"));
 

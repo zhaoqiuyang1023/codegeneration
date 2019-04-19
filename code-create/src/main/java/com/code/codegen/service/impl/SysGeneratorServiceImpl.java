@@ -1,7 +1,6 @@
 package com.code.codegen.service.impl;
 
 import cn.hutool.core.io.IoUtil;
-import cn.hutool.json.JSON;
 import com.code.codegen.entity.GenConfig;
 import com.code.codegen.mapper.SysGeneratorMapper;
 import com.code.codegen.service.SysGeneratorService;
@@ -43,7 +42,6 @@ public class SysGeneratorServiceImpl implements SysGeneratorService {
 	public byte[] generatorCode(GenConfig genConfig) {
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 		ZipOutputStream zip = new ZipOutputStream(outputStream);
-        System.out.println("啦啦啦"+genConfig);
 		Map<String, String> table = queryTable(genConfig.getTableName());
 		List<Map<String, String>> columns = queryColumns(genConfig.getTableName());
 
@@ -53,7 +51,6 @@ public class SysGeneratorServiceImpl implements SysGeneratorService {
 	}
 
 	private Map<String, String> queryTable(String tableName) {
-		System.out.println(sysGeneratorMapper.queryTable(tableName));
 		return sysGeneratorMapper.queryTable(tableName);
 	}
 

@@ -5,10 +5,7 @@ import org.apache.commons.lang.StringUtils;
 
 import java.util.Map;
 
-/**
- * @author Hanping QIAO
- * 2018-08-30 下午6:20
- **/
+
 public class Query<T> extends Page<T> {
     private static final String PAGE = "page";
     private static final String LIMIT = "limit";
