@@ -1,0 +1,46 @@
+package ${package}.${moduleName}.entity;
+
+import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import io.swagger.annotations.ApiModelProperty;
+import com.baomidou.mybatisplus.enums.IdType;
+import java.io.Serializable;
+import java.util.Date;
+  #if(${hasBigDecimal})
+import java.math.BigDecimal;
+
+#end
+
+
+/**
+ * ${comments}
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Data
+@EqualsAndHashCode(callSuper = true)
+@TableName("${tableName}")
+public class ${className} extends Model<${className}> {
+	private static final long serialVersionUID = 1L;
+
+#foreach ($column in $columns)
+
+	#if($column.columnName == $pk.columnName)
+@TableId(type = IdType.UUID)
+	#end
+@ApiModelProperty(value = "$column.comments")
+private $column.attrType $column.lowerAttrName;
+#end
+
+  /**
+   * primary key
+   */
+  @Override
+  protected Serializable pkVal() {
+    return this.$pk.lowerAttrName;
+  }
+}
