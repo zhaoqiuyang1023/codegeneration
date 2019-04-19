@@ -31,6 +31,7 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>${mbp.boot.version}</version>
         </dependency>
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
