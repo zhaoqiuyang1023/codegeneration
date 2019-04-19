@@ -193,9 +193,10 @@ public class CodegenUtils {
      * Get file name
      */
     private static String getFileName(String template, String className, String packageName) {
-        String packagePath = "ad" + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator;
+        String packagePath = "";
         if (StringUtils.isNotBlank(packageName)) {
-            packagePath += packageName.replace(".", File.separator) + File.separator + File.separator;
+            // packagePath += packageName.replace(".", File.separator) + File.separator + File.separator;
+            packagePath = "";
         }
 
         if (template.contains(ENTITY_JAVA_VM)) {
@@ -219,7 +220,7 @@ public class CodegenUtils {
         }
 
         if (template.contains(MAPPER_XML_VM)) {
-            return "ad" + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "mapper" + File.separator + className + "Mapper.xml";
+            return  "resources" + File.separator + "mapper" + File.separator + className + "Mapper.xml";
         }
 
         return null;
