@@ -16,6 +16,7 @@ import java.util.Map;
 @AllArgsConstructor
 @RequestMapping("/generator")
 public class SysGeneratorController {
+
 	private final SysGeneratorService sysGeneratorService;
 
 	/**
