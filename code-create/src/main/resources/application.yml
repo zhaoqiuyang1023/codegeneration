@@ -10,7 +10,7 @@ spring:
     name: ad-codegen
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: ZnA*rJuuV7A
     url: jdbc:mysql://182.61.136.215:3306/er

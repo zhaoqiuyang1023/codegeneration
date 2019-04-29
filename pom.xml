@@ -31,12 +31,7 @@
 
     <dependencies>
 
-        <!--&lt;!&ndash;配置文件处理器&ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-configuration-processor</artifactId>-->
-            <!--<optional>true</optional>-->
-        <!--</dependency>-->
+       
 
         <!--Lombok-->
         <dependency>
