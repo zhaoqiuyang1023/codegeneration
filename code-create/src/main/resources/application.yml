@@ -1,9 +1,6 @@
 server:
   port: 6666
 
-logging:
-  level:
-    root: debug
 # 数据源配置
 spring:
   application:
@@ -12,7 +9,7 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: **
+    password: ZnA*rJuuV7A
     url: jdbc:mysql://182.61.136.215:3306/er
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
