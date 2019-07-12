@@ -17,7 +17,6 @@
         <spring-cloud.version>Finchley.SR2</spring-cloud.version>
         <spring-platform.version>Cairo-SR3</spring-platform.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
         <lombok.version>1.16.20</lombok.version>
         <monitor.version>2.0.2</monitor.version>
         <hutool.version>4.0.4</hutool.version>
@@ -30,8 +29,6 @@
 
 
     <dependencies>
-
-       
 
         <!--Lombok-->
         <dependency>
@@ -51,21 +48,6 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>${hutool.version}</version>
-        </dependency>
-
-
-        <!--jacksonJSR310规范-->
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jsr310</artifactId>
-        </dependency>
-
-        <!--mybatis-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-core</artifactId>
-            <version>${mbp.boot.version}</version>
-            <scope>compile</scope>
         </dependency>
 
 
