@@ -1,9 +1,9 @@
 server:
   port: 6666
 
-logging:
-  level:
-    root: debug
+#logging:
+#  level:
+#    root: debug
 # 数据源配置
 spring:
   application:
