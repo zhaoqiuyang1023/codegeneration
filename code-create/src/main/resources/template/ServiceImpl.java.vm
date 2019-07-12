@@ -10,7 +10,12 @@ import ${package}.mapper.${className}Mapper;
 import ${package}.entity.${className};
 import ${package}.service.${className}Service;
 
-
+/**
+ * ${comments}
+ *
+ * @author ${author}
+ * ${datetime}
+ */
 @Service("${classname}Service")
 public class ${className}ServiceImpl extends ServiceImpl<${className}Mapper, ${className}> implements ${className}Service {
 
