@@ -32,7 +32,7 @@ private static final long serialVersionUID=1L;
     #if($column.columnName == $pk.columnName)
     @TableId(type = IdType.UUID)
     #end
-@TableField(value ="$column.columnName")
+@TableField(value = "$column.columnName")
 @ApiModelProperty(value = "$column.comments")
 private $column.attrType $column.lowerAttrName;
 #end

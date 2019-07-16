@@ -13,13 +13,23 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123456
-
     url: jdbc:mysql://192.168.30.170:3306/eports_dev?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=GMT%2B8
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
   resources:
     static-locations: classpath:/static/,classpath:/views/
-
+  mvc:
+    static-path-pattern: /static/**
+  freemarker:
+    template-loader-path: classpath:/template/
+    prefer-file-system-access: false
+    settings:
+      template_update_delay: 0
+      classic_compatible: true
+      number_format: 0.######
+      template_exception_handler: ignore
+    request-context-attribute: rc
+    charset: UTF-8
 # mybaits 模块配置
 mybatis-plus:
   typeAliasesPackage: com.code.codegen.entity

@@ -9,9 +9,9 @@
 <mapper namespace="${package}.mapper.${className}Mapper">
 
     <resultMap type="${package}.entity.${className}" id="${classname}Map">
-#foreach($column in $columns)
-        <result property="${column.lowerAttrName}" column="${column.columnName}"/>
-#end
+        #foreach($column in $columns)
+            <result property="${column.lowerAttrName}" column="${column.columnName}"/>
+        #end
     </resultMap>
 
 

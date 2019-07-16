@@ -18,43 +18,50 @@ import java.util.zip.ZipOutputStream;
 @Service
 @AllArgsConstructor
 public class SysGeneratorServiceImpl implements SysGeneratorService {
-	private final SysGeneratorMapper sysGeneratorMapper;
+    private final SysGeneratorMapper sysGeneratorMapper;
 
 
-	/**
-	 * get tables info by pagination
-	 *
-	 * @param query search query
-	 * @return
-	 */
-	@Override
-	public List<Map<String,Object>> queryPage(Query query) {
-		return sysGeneratorMapper.queryList(query);
-	}
+    /**
+     * get tables info by pagination
+     *
+     * @param query search query
+     * @return
+     */
+    @Override
+    public List<Map<String, Object>> queryPage(Query query) {
+        return sysGeneratorMapper.queryList(query);
+    }
 
-	/**
-	 * generate code
-	 *
-	 * @param genConfig configuration to generate code
-	 * @return
-	 */
-	@Override
-	public byte[] generatorCode(GenConfig genConfig) {
-		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-		ZipOutputStream zip = new ZipOutputStream(outputStream);
-		Map<String, String> table = queryTable(genConfig.getTableName());
-		List<Map<String, String>> columns = queryColumns(genConfig.getTableName());
+    /**
+     * generate code
+     *
+     * @param genConfig configuration to generate code
+     * @return
+     */
+    @Override
+    public byte[] generatorCode(GenConfig genConfig) {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        ZipOutputStream zip = new ZipOutputStream(outputStream);
+        for (int i = 0; i < genConfig.getTableName().size(); i++) {
 
-		CodegenUtils.generateCode(genConfig, table, columns, zip);
-		IoUtil.close(zip);
-		return outputStream.toByteArray();
-	}
+            //根据表名称查询表信息
+            Map<String, String> table = queryTable(genConfig.getTableName().get(i));
+            //根据表名称查询表字段信息
+            List<Map<String, String>> columns = queryColumns(genConfig.getTableName().get(i));
 
-	private Map<String, String> queryTable(String tableName) {
-		return sysGeneratorMapper.queryTable(tableName);
-	}
+            CodegenUtils.generateCode(genConfig, table, columns, zip);
 
-	private List<Map<String, String>> queryColumns(String tableName) {
-		return sysGeneratorMapper.queryColumns(tableName);
-	}
+        }
+
+        IoUtil.close(zip);
+        return outputStream.toByteArray();
+    }
+
+    private Map<String, String> queryTable(String tableName) {
+        return sysGeneratorMapper.queryTable(tableName);
+    }
+
+    private List<Map<String, String>> queryColumns(String tableName) {
+        return sysGeneratorMapper.queryColumns(tableName);
+    }
 }

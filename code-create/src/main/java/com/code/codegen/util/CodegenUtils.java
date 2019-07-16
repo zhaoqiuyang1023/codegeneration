@@ -139,7 +139,7 @@ public class CodegenUtils {
             map.put("package", "");
             map.put("mainPath", "");
         }
-        VelocityContext context = new VelocityContext(map);
+         VelocityContext context = new VelocityContext(map);
 
         //get template info
         List<String> templates = getTemplates();

@@ -2,6 +2,8 @@ package com.code.codegen.entity;
 
 import lombok.Data;
 
+import java.util.List;
+
 
 @Data
 public class GenConfig {
@@ -16,10 +18,6 @@ public class GenConfig {
      */
     private String author;
 
-    /**
-     *  module name
-     */
-    private String moduleName;
 
     /**
      *  table prefix
@@ -29,10 +27,13 @@ public class GenConfig {
     /**
      *  table name
      */
-    private String tableName;
+    private List<String> tableName;
 
     /**
      *  comments
      */
     private String comments;
+
+
+
 }
