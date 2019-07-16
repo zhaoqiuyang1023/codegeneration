@@ -15,7 +15,7 @@ import ${package}.service.${className}Service;
  * ${comments}
  *
  * @author ${author}
- * ${datetime}
+ * @date ${datetime}
  */
 @RestController
 @RequestMapping("/${pathName}")

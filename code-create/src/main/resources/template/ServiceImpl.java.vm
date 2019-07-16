@@ -14,7 +14,7 @@ import ${package}.service.${className}Service;
  * ${comments}
  *
  * @author ${author}
- * ${datetime}
+ * @date ${datetime}
  */
 @Service("${classname}Service")
 public class ${className}ServiceImpl extends ServiceImpl<${className}Mapper, ${className}> implements ${className}Service {
