@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Map;
 
-
+@CrossOrigin
 @Controller
 @AllArgsConstructor
 @RequestMapping("/generator")
@@ -48,9 +48,13 @@ public class SysGeneratorController {
 	@RequestMapping("/code")
 	public void code(@RequestBody GenConfig genConfig, HttpServletResponse response) throws IOException {
 		System.out.println(genConfig);
+		initCode(genConfig, response);
+	}
+
+	private void initCode(@RequestBody GenConfig genConfig, HttpServletResponse response) throws IOException {
 		byte[] data = sysGeneratorService.generatorCode(genConfig);
 
-		String zipName="code";
+		String zipName = "code";
 		response.reset();
 		response.setHeader("Content-Disposition", String.format("attachment; filename=%s.zip", zipName));
 		response.addHeader("Content-Length", "" + data.length);
@@ -63,14 +67,6 @@ public class SysGeneratorController {
 	public void code1(@PathVariable("json") String genConfig, HttpServletResponse response) throws IOException {
 		System.out.println(genConfig);
 		GenConfig genConfig1=JSONUtil.toBean(JSONUtil.parseObj(genConfig),GenConfig.class);
-		byte[] data = sysGeneratorService.generatorCode(genConfig1);
-
-		String zipName="code";
-		response.reset();
-		response.setHeader("Content-Disposition", String.format("attachment; filename=%s.zip", zipName));
-		response.addHeader("Content-Length", "" + data.length);
-		response.setContentType("application/octet-stream; charset=UTF-8");
-
-		IoUtil.write(response.getOutputStream(), Boolean.TRUE, data);
+		initCode(genConfig1, response);
 	}
 }

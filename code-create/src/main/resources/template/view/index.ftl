@@ -149,6 +149,10 @@
                 console.log(dateEnd)
             }
         });
+        $(function () {
+            $("#author").val(localStorage.getItem('author'));
+            $("#packageName").val(localStorage.getItem('packageName'));
+        });
 
         element.on('tab(TabBrief)', function (data) {
             console.log("" + $(this).attr("value")); //获取value的值
@@ -270,6 +274,8 @@
             genConfig.packageName = $("#packageName").val();
             window.location.href = "${base}/generator/code/" + encodeURI(JSON.stringify(genConfig));
 
+            localStorage.setItem('packageName', $("#packageName").val());
+            localStorage.setItem('author', $("#author").val());
         });
 
     });

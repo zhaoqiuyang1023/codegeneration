@@ -1,10 +1,14 @@
 server:
-  port: 6666
-
-#logging:
-#  level:
-#    root: debug
-# 数据源配置
+  port: 8081
+  #安全端口
+#  3659, // apple-sasl / PasswordServer
+#  4045, // lockd
+#  6000, // X11
+#  6665, // Alternate IRC [Apple addition]
+#  6666, // Alternate IRC [Apple addition]
+#  6667, // Standard IRC [Apple addition]
+#  6668, // Alternate IRC [Apple addition]
+#  6669, // Alternate IRC [Apple addition]
 spring:
   application:
     name: ad-codegen
