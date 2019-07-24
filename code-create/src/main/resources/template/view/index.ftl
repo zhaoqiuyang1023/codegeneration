@@ -31,7 +31,7 @@
     <legend>用户信息检索</legend>
     <div class="layui-field-box">
 
-        <form class="layui-form" id="searchForm">
+        <form class="layui-form">
             <div class="searDiv">
                 <div class="flex-item">
                     <div class="layui-form-item">
@@ -57,7 +57,7 @@
                 <div class="flex-item">
                     <div class="layui-form-item">
                         <div class="layui-input-inline">
-                            <button class="layui-btn" lay-submit lay-filter="searchForm">查询</button>
+                            <button class="layui-btn" id="searchForm">查询</button>
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">包名</label>
                     <div class="layui-input-inline">
-                        <input class="layui-input" name="packageName" id="packageName" type="text"
+                        <input class="layui-input" name="packageName" id="packageName" type="text" lay-verify="required"
                                placeholder="com.mysql.demo">
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                     <label class="layui-form-label">作者</label>
                     <div class="layui-input-inline">
                         <input type="text" name="author" id="author"
-                               placeholder="@auth"
+                               placeholder="@auth" lay-verify="required"
                                autocomplete="off" class="layui-input">
                     </div>
                 </div>
@@ -154,26 +154,21 @@
             $("#packageName").val(localStorage.getItem('packageName'));
         });
 
-        element.on('tab(TabBrief)', function (data) {
-            console.log("" + $(this).attr("value")); //获取value的值
-            status = $(this).attr("value");
-            tableName = $("#tableName").val();
-            table.reload('tables', {
-                where: { //设定异步数据接口的额外参数，任意设
-                    "tableName": tableName,
-                    "dateStart": dateStart,
-                    "dateEnd": dateEnd,
-                }
-                , page: {
-                    curr: 1 //重新从第 1 页开始
-                }
-            });
-        });
-
         //监听工具条
         table.on('tool(tables)', function (obj) {
             var data = obj.data;
             if (obj.event === 'edit') {
+                layer.open({
+                    title: "编辑公司信息",
+                    type: 2,
+                    area: ['512px', '450px'],
+                    content: "${base}/edit/" + data.id,
+                    success: function (layero, index) {
+
+                    }
+                });
+            }
+            if (obj.event === 'code') {
                 layer.open({
                     title: "编辑公司信息",
                     type: 2,
@@ -235,18 +230,9 @@
                 {fixed: 'right', title: '操作', width: '15%', align: 'center', toolbar: '#barOpt'}
             ]]
         });
-        table.on('checkbox(tables)', function (obj) {
-            /*
-            console.log(obj.checked); //当前是否选中状态
-            console.log(obj.data.tableName); //选中行的相关数据
-            console.log(obj.type); //如果触发的是全选，则为：all，如果触发的是单选，则为：one
-            console.log(obj.data);
-             */
 
-        });
 
-        form.on("submit(searchForm)", function (data) {
-
+        $('#searchForm').on('click',function () {
             table.reload('tables', {
                 where: {
                     "tableName": $("#tableName").val(),
@@ -259,6 +245,7 @@
             });
             return false;
         });
+
 
         $("#codeGeneration").on("click", function () {
             //获取选中数据

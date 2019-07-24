@@ -1,6 +1,7 @@
 package com.code.codegen.service.impl;
 
 import cn.hutool.core.io.IoUtil;
+import com.baomidou.mybatisplus.plugins.Page;
 import com.code.codegen.entity.GenConfig;
 import com.code.codegen.mapper.SysGeneratorMapper;
 import com.code.codegen.service.SysGeneratorService;
@@ -28,8 +29,8 @@ public class SysGeneratorServiceImpl implements SysGeneratorService {
      * @return
      */
     @Override
-    public List<Map<String, Object>> queryPage(Query query) {
-        return sysGeneratorMapper.queryList(query);
+    public List<Map<String, Object>> queryPage(Page query, Map<String, Object> params) {
+        return sysGeneratorMapper.queryList(query,params);
     }
 
     /**

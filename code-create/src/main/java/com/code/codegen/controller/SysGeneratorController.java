@@ -3,6 +3,7 @@ package com.code.codegen.controller;
 import cn.hutool.core.io.IoUtil;
 import cn.hutool.json.JSON;
 import cn.hutool.json.JSONUtil;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.code.codegen.entity.GenConfig;
 import com.code.codegen.service.SysGeneratorService;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 @CrossOrigin
@@ -32,9 +34,9 @@ public class SysGeneratorController {
 	@PostMapping("/page")
 	@ResponseBody
 	public R<Page> list(@RequestParam Map<String, Object> params) {
-		Query query = new Query(params);
-		query.setRecords(sysGeneratorService.queryPage(query));
-		return new R<>(query);
+		Page<Map<String,Object>> page = new Page<>(1,10);
+		page.setRecords(sysGeneratorService.queryPage(page,params));
+		return new R<>(page);
 	}
 
 	@RequestMapping("/index")

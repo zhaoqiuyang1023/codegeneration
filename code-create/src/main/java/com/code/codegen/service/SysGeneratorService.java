@@ -1,5 +1,6 @@
 package com.code.codegen.service;
 
+import com.baomidou.mybatisplus.plugins.Page;
 import com.code.codegen.entity.GenConfig;
 import com.code.codegen.util.Query;
 
@@ -21,5 +22,5 @@ public interface SysGeneratorService {
 	 * @param query 查询条件
 	 * @return
 	 */
-	List<Map<String,Object>> queryPage(Query query);
+	List<Map<String,Object>> queryPage(Page query, Map<String, Object> params);
 }

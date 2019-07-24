@@ -1,6 +1,7 @@
 package com.code.codegen.mapper;
-import com.code.codegen.util.Query;
+import com.baomidou.mybatisplus.plugins.Page;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -13,10 +14,10 @@ public interface SysGeneratorMapper{
 	/**
 	 * get tables info by pagination
 	 *
-	 * @param params
+	 * @param m
 	 * @return
 	 */
-	List<Map<String, Object>> queryList(Query params);
+	List<Map<String, Object>> queryList(Page query,@Param("m") Map<String, Object> m);
 
 
 
