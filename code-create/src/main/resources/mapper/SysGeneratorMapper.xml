@@ -3,12 +3,13 @@
 
 <mapper namespace="com.code.codegen.mapper.SysGeneratorMapper">
 	<select id="queryList" resultType="map">
-		select table_name tableName, engine, table_comment tableComment, create_time createTime from information_schema.tables
-			where table_schema = (select database())
+-- 		select table_name tableName, engine, table_comment tableComment, create_time createTime from information_schema.tables
+-- 			where table_schema = (select database())
+		SELECT name as tableName  FROM sqlite_master WHERE type='table' ORDER BY name;
 		<if test="m.tableName != null and m.tableName.trim() != ''">
-			and table_name like concat('%', #{m.tableName}, '%')
+			and name like concat('%', #{m.tableName}, '%')
 		</if>
-		order by create_time desc
+
 	</select>
 
 <!--	<select id="queryTable" resultType="map">-->
