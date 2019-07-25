@@ -34,7 +34,7 @@ public class SysGeneratorController {
 	@PostMapping("/page")
 	@ResponseBody
 	public R<Page> list(@RequestParam Map<String, Object> params) {
-		Page<Map<String,Object>> page = new Page<>(1,10);
+		Page<Map<String,Object>> page = new Page<>(Integer.parseInt(params.get("page").toString()),Integer.parseInt(params.get("limit").toString()));
 		page.setRecords(sysGeneratorService.queryPage(page,params));
 		return new R<>(page);
 	}
