@@ -74,10 +74,9 @@ public class CodegenUtils {
         List<ColumnEntity> columnList = new ArrayList<>();
         for (Map<String, String> column : columns) {
             ColumnEntity columnEntity = new ColumnEntity();
-            columnEntity.setColumnName(column.get("columnName"));
-            columnEntity.setDataType(DataTypeUtils.getDataType(column.get("dataType")));
-            columnEntity.setComments(column.get("columnComment"));
-            columnEntity.setExtra(column.get("extra"));
+            columnEntity.setColumnName(column.get("name"));
+            columnEntity.setDataType(DataTypeUtils.getDataType(column.get("type")));
+
 
             //transfer columns info to java
             String attrName = columnToJava(columnEntity.getColumnName());

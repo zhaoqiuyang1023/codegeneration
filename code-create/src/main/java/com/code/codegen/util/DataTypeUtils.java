@@ -25,6 +25,9 @@ public class DataTypeUtils {
         map.put("date", "Date");
         map.put("datetime", "Date");
         map.put("timestamp", "Date");
+
+
+        map.put("INTEGER", "Integer");
     }
 
 

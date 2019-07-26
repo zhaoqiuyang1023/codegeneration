@@ -63,6 +63,7 @@ public class SysGeneratorServiceImpl implements SysGeneratorService {
     }
 
     private List<Map<String, String>> queryColumns(String tableName) {
-        return sysGeneratorMapper.queryColumns(tableName);
+        System.out.println(sysGeneratorMapper.queryColumns(tableName));
+        return  sysGeneratorMapper.queryColumns(tableName);
     }
 }

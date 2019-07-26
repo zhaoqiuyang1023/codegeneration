@@ -1,20 +1,17 @@
 package com.code.codegen.controller;
 
 import cn.hutool.core.io.IoUtil;
-import cn.hutool.json.JSON;
 import cn.hutool.json.JSONUtil;
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.code.codegen.entity.GenConfig;
 import com.code.codegen.service.SysGeneratorService;
-import com.code.codegen.util.Query;
 import com.code.codegen.util.R;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 
 @CrossOrigin
