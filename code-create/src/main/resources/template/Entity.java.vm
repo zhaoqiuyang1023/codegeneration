@@ -23,19 +23,22 @@ import java.math.BigDecimal;
 @EqualsAndHashCode(callSuper = true)
 @TableName("${tableName}")
 public class ${className} extends Model<${className}> {
-private static final long serialVersionUID=1L;
+    private static final long serialVersionUID=1L;
 
-#foreach ($column in $columns)
+    #foreach ($column in $columns)
 
-    #if($column.columnName == $pk.columnName)
+#if($column.columnName == $pk.columnName)
     @TableId(type = IdType.UUID)
-    #end
-    #if($column.columnName == "is_del")
+#end
+#if($column.columnName == "is_del")
     @TableLogic
-    #end
-@TableField(value = "$column.columnName")
-@ApiModelProperty(value = "$column.comments")
-private $column.attrType $column.lowerAttrName;
+#end
+#if($column.attrType == "Date")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+#end
+    @TableField(value = "$column.columnName")
+    @ApiModelProperty(value = "$column.comments")
+    private $column.attrType $column.lowerAttrName;
 #end
 
 /**
