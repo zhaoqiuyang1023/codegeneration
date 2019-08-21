@@ -1,12 +1,10 @@
 package ${package}.entity;
 
-import com.baomidou.mybatisplus.activerecord.Model;
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import io.swagger.annotations.ApiModelProperty;
-import com.baomidou.mybatisplus.enums.IdType;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -31,6 +29,9 @@ private static final long serialVersionUID=1L;
 
     #if($column.columnName == $pk.columnName)
     @TableId(type = IdType.UUID)
+    #end
+    #if($column.columnName == "is_del")
+    @TableLogic
     #end
 @TableField(value = "$column.columnName")
 @ApiModelProperty(value = "$column.comments")

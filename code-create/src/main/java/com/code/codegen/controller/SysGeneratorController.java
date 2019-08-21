@@ -2,7 +2,7 @@ package com.code.codegen.controller;
 
 import cn.hutool.core.io.IoUtil;
 import cn.hutool.json.JSONUtil;
-import com.baomidou.mybatisplus.plugins.Page;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.code.codegen.entity.GenConfig;
 import com.code.codegen.service.SysGeneratorService;
 import com.code.codegen.util.R;

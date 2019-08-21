@@ -1,13 +1,15 @@
 package com.code.codegen.service;
 
-import com.baomidou.mybatisplus.plugins.Page;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.code.codegen.entity.GenConfig;
-import com.code.codegen.util.Query;
 
 
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author Alan
+ */
 public interface SysGeneratorService {
 	/**
 	 * generate code

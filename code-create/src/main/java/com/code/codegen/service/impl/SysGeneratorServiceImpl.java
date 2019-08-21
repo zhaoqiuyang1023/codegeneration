@@ -1,12 +1,11 @@
 package com.code.codegen.service.impl;
 
 import cn.hutool.core.io.IoUtil;
-import com.baomidou.mybatisplus.plugins.Page;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.code.codegen.entity.GenConfig;
 import com.code.codegen.mapper.SysGeneratorMapper;
 import com.code.codegen.service.SysGeneratorService;
 import com.code.codegen.util.CodegenUtils;
-import com.code.codegen.util.Query;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

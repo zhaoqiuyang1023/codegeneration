@@ -1,5 +1,5 @@
 package com.code.codegen.mapper;
-import com.baomidou.mybatisplus.plugins.Page;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -17,7 +17,7 @@ public interface SysGeneratorMapper{
 	 * @param m
 	 * @return
 	 */
-	List<Map<String, Object>> queryList(Page query,@Param("m") Map<String, Object> m);
+	List<Map<String, Object>> queryList(Page query, @Param("m") Map<String, Object> m);
 
 
 
