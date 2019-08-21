@@ -29,12 +29,15 @@ private static final long serialVersionUID=1L;
 
 #foreach ($column in $columns)
 
-    #if($column.columnName == $pk.columnName)
+#if($column.columnName == $pk.columnName)
     @TableId(type = IdType.UUID)
-    #end
-@TableField(value = "$column.columnName")
-@ApiModelProperty(value = "$column.comments")
-private $column.attrType $column.lowerAttrName;
+#end
+#if($column.attrType == "Date")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+#end
+    @TableField(value = "$column.columnName")
+    @ApiModelProperty(value = "$column.comments")
+    private $column.attrType $column.lowerAttrName;
 #end
 
 /**
