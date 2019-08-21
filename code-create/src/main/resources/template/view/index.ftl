@@ -70,12 +70,12 @@
 <div class="layui-form users_list">
     <table class="layui-table" id="tables" lay-filter="tables"></table>
 
-    <script type="text/html" id="barOpt">
+<#--    <script type="text/html" id="barOpt">-->
 
-        <a class="layui-btn layui-btn-xs layui-anim layui-anim-scaleSpring" lay-event="code" title="生成代码">生成代码</a>
-        <a class="layui-btn layui-btn-xs layui-anim layui-anim-scaleSpring" lay-event="del" title="删除">删除</a>
-        <a class="layui-btn layui-btn-xs layui-anim layui-anim-scaleSpring" lay-event="edit" title="编辑">编辑</a>
-    </script>
+<#--        <a class="layui-btn layui-btn-xs layui-anim layui-anim-scaleSpring" lay-event="code" title="生成代码">生成代码</a>-->
+<#--        <a class="layui-btn layui-btn-xs layui-anim layui-anim-scaleSpring" lay-event="del" title="删除">删除</a>-->
+<#--        <a class="layui-btn layui-btn-xs layui-anim layui-anim-scaleSpring" lay-event="edit" title="编辑">编辑</a>-->
+<#--    </script>-->
 </div>
 <div class="flex-item">
     <div class="layui-field-box">
