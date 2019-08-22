@@ -32,6 +32,9 @@ private static final long serialVersionUID=1L;
 #if($column.columnName == $pk.columnName)
     @TableId(type = IdType.UUID)
 #end
+#if($column.columnName == "is_del")
+    @TableLogic
+#end
 #if($column.attrType == "Date")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 #end
