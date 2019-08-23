@@ -13,5 +13,25 @@
         #end
     </resultMap>
 
+    <select id="get${className}ListByPage" resultType="${package}.entity.${className}">
+
+        select * from ${tableName}
+
+        <where>
+            #foreach($column in $columns)
+                <if test="param.${column.lowerAttrName} != null and param.${column.lowerAttrName} != ''">
+                    AND ${column.columnName}=param.${column.lowerAttrName}
+                </if>
+            #end
+
+
+            and a.is_del=0 and c.is_del=0
+
+            order by a.date_update desc
+        </where>
+
+
+
+    </select>
 
 </mapper>

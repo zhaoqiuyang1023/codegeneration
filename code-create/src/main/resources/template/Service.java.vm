@@ -1,14 +1,17 @@
 package ${package}.service;
-
+import org.apache.ibatis.annotations.Param;
+import java.util.Map;
 import com.baomidou.mybatisplus.extension.service.IService;
 import ${package}.entity.${className};
-
+import org.apache.ibatis.annotations.Param;
+import java.util.List;
 /**
  * ${comments}
- *
  * @author ${author}
  * @date ${datetime}
  */
 public interface ${className}Service extends IService<${className}> {
+
+    List<${className}> get${className}ListByPage(Pagination page, @Param("param")Map<String,Object> map);
 }
 
