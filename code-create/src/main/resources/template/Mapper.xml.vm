@@ -20,7 +20,7 @@
         <where>
             #foreach($column in $columns)
                 <if test="param.${column.lowerAttrName} != null and param.${column.lowerAttrName} != ''">
-                    AND ${column.columnName}=param.${column.lowerAttrName}
+                    AND ${column.columnName}=#{param.${column.lowerAttrName}}
                 </if>
             #end
 
